@@ -101,7 +101,6 @@ const Home: NextPage = () => {
                   longitude: 23.770809,
                   zoom: 10,
                 }}
-                mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
                 mapStyle="https://api.maptiler.com/maps/openstreetmap/style.json?key=UcrAb2Y21ncvJA6R54Hn"
                 style={{ width: 500, height: 400 }}
                 attributionControl={false}
