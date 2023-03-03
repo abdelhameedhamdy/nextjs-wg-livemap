@@ -1,0 +1,232 @@
+openapi: "3.0.0"
+info:
+  version: "1.0"
+  title: "Avantation REST Template"
+  description: "TODO: Add Description"
+servers:
+  - url: http://data.itsfactory.fi/journeys/api/1
+    description: Example Server
+paths:
+  /vehicle-activity/:
+    get:
+      security: []
+      tags:
+        - "journeys"
+      summary: "journeys"
+      responses:
+        200:
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  status:
+                    type: "string"
+                  data:
+                    type: "object"
+                    properties:
+                      headers:
+                        type: "object"
+                        properties:
+                          paging:
+                            type: "object"
+                            properties:
+                              startIndex:
+                                type: "number"
+                              pageSize:
+                                type: "number"
+                              moreData:
+                                type: "boolean"
+                  body:
+                    type: "array"
+                    items:
+                      type: "object"
+                      properties:
+                        recordedAtTime:
+                          type: "string"
+                        validUntilTime:
+                          type: "string"
+                        monitoredVehicleJourney:
+                          type: "object"
+                          properties:
+                            lineRef:
+                              type: "string"
+                            directionRef:
+                              type: "string"
+                            framedVehicleJourneyRef:
+                              type: "object"
+                              properties:
+                                dateFrameRef:
+                                  type: "string"
+                                datedVehicleJourneyRef:
+                                  type: "string"
+                            vehicleLocation:
+                              type: "object"
+                              properties:
+                                longitude:
+                                  type: "string"
+                                latitude:
+                                  type: "string"
+                            operatorRef:
+                              type: "string"
+                            bearing:
+                              type: "string"
+                            delay:
+                              type: "string"
+                            vehicleRef:
+                              type: "string"
+                            journeyPatternRef:
+                              type: "string"
+                            originShortName:
+                              type: "string"
+                            destinationShortName:
+                              type: "string"
+                            speed:
+                              type: "string"
+                            originAimedDepartureTime:
+                              type: "string"
+                            onwardCalls:
+                              type: "array"
+                              items:
+                                type: "object"
+                                properties:
+                                  expectedDepartureTime:
+                                    type: "string"
+                                  stopPointRef:
+                                    type: "string"
+                                  order:
+                                    type: "string"
+                                  expectedArrivalTime:
+                                    type: "string"
+                                required:
+                                  - "expectedDepartureTime"
+                                  - "stopPointRef"
+                                  - "order"
+                                  - "expectedArrivalTime"
+              example:
+                status: "success"
+                data:
+                  headers:
+                    paging:
+                      startIndex: 0
+                      pageSize: 1
+                      moreData: false
+                body:
+                  - recordedAtTime: "2023-03-02T03:50:12.177+02:00"
+                    validUntilTime: "2023-03-02T03:51:12.177+02:00"
+                    monitoredVehicleJourney:
+                      lineRef: "103"
+                      directionRef: "1"
+                      framedVehicleJourneyRef:
+                        dateFrameRef: "2023-03-02"
+                        datedVehicleJourneyRef: "http://178.217.134.14/journeys/api/1/journeys/103_0415_7059_0092"
+                      vehicleLocation:
+                        longitude: "23.6286755"
+                        latitude: "61.4348717"
+                      operatorRef: "6957"
+                      bearing: "26.0"
+                      delay: "P0Y0M0DT0H0M0.000S"
+                      vehicleRef: "6957_330"
+                      journeyPatternRef: "103"
+                      originShortName: "0092"
+                      destinationShortName: "7059"
+                      speed: "61.1"
+                      originAimedDepartureTime: "0415"
+                      onwardCalls:
+                        - expectedDepartureTime: "2023-03-02T04:15:00+02:00"
+                          stopPointRef: "http://178.217.134.14/journeys/api/1/stop-points/0092"
+                          order: "0"
+                        - expectedArrivalTime: "2023-03-02T04:16:02+02:00"
+                          expectedDepartureTime: "2023-03-02T04:16:04+02:00"
+                          stopPointRef: "http://178.217.134.14/journeys/api/1/stop-points/0050"
+                          order: "1"
+                        - expectedArrivalTime: "2023-03-02T04:16:22+02:00"
+                          expectedDepartureTime: "2023-03-02T04:16:26+02:00"
+                          stopPointRef: "http://178.217.134.14/journeys/api/1/stop-points/0080"
+                          order: "2"
+                        - expectedArrivalTime: "2023-03-02T04:16:46+02:00"
+                          expectedDepartureTime: "2023-03-02T04:16:46+02:00"
+                          stopPointRef: "http://178.217.134.14/journeys/api/1/stop-points/0066"
+                          order: "3"
+                        - expectedArrivalTime: "2023-03-02T04:18:12+02:00"
+                          expectedDepartureTime: "2023-03-02T04:18:14+02:00"
+                          stopPointRef: "http://178.217.134.14/journeys/api/1/stop-points/0072"
+                          order: "4"
+                        - expectedArrivalTime: "2023-03-02T04:18:38+02:00"
+                          expectedDepartureTime: "2023-03-02T04:18:40+02:00"
+                          stopPointRef: "http://178.217.134.14/journeys/api/1/stop-points/0038"
+                          order: "5"
+                        - expectedArrivalTime: "2023-03-02T04:19:06+02:00"
+                          expectedDepartureTime: "2023-03-02T04:19:08+02:00"
+                          stopPointRef: "http://178.217.134.14/journeys/api/1/stop-points/0536"
+                          order: "6"
+                        - expectedArrivalTime: "2023-03-02T04:19:54+02:00"
+                          expectedDepartureTime: "2023-03-02T04:20:00+02:00"
+                          stopPointRef: "http://178.217.134.14/journeys/api/1/stop-points/0529"
+                          order: "7"
+                        - expectedArrivalTime: "2023-03-02T04:20:52+02:00"
+                          expectedDepartureTime: "2023-03-02T04:21:00+02:00"
+                          stopPointRef: "http://178.217.134.14/journeys/api/1/stop-points/0506"
+                          order: "8"
+                        - expectedArrivalTime: "2023-03-02T04:22:00+02:00"
+                          expectedDepartureTime: "2023-03-02T04:22:13+02:00"
+                          stopPointRef: "http://178.217.134.14/journeys/api/1/stop-points/0569"
+                          order: "9"
+                        - expectedArrivalTime: "2023-03-02T04:22:59+02:00"
+                          expectedDepartureTime: "2023-03-02T04:23:01+02:00"
+                          stopPointRef: "http://178.217.134.14/journeys/api/1/stop-points/0120"
+                          order: "10"
+                        - expectedArrivalTime: "2023-03-02T04:24:03+02:00"
+                          expectedDepartureTime: "2023-03-02T04:24:04+02:00"
+                          stopPointRef: "http://178.217.134.14/journeys/api/1/stop-points/0524"
+                          order: "11"
+                        - expectedArrivalTime: "2023-03-02T04:24:52+02:00"
+                          expectedDepartureTime: "2023-03-02T04:24:56+02:00"
+                          stopPointRef: "http://178.217.134.14/journeys/api/1/stop-points/3000"
+                          order: "12"
+                        - expectedArrivalTime: "2023-03-02T04:25:52+02:00"
+                          expectedDepartureTime: "2023-03-02T04:25:54+02:00"
+                          stopPointRef: "http://178.217.134.14/journeys/api/1/stop-points/3002"
+                          order: "13"
+                        - expectedArrivalTime: "2023-03-02T04:34:44+02:00"
+                          expectedDepartureTime: "2023-03-02T04:36:00+02:00"
+                          stopPointRef: "http://178.217.134.14/journeys/api/1/stop-points/7022"
+                          order: "14"
+                        - expectedArrivalTime: "2023-03-02T04:36:23+02:00"
+                          expectedDepartureTime: "2023-03-02T04:36:25+02:00"
+                          stopPointRef: "http://178.217.134.14/journeys/api/1/stop-points/7024"
+                          order: "15"
+                        - expectedArrivalTime: "2023-03-02T04:37:04+02:00"
+                          expectedDepartureTime: "2023-03-02T04:37:06+02:00"
+                          stopPointRef: "http://178.217.134.14/journeys/api/1/stop-points/7026"
+                          order: "16"
+                        - expectedArrivalTime: "2023-03-02T04:37:36+02:00"
+                          expectedDepartureTime: "2023-03-02T04:37:36+02:00"
+                          stopPointRef: "http://178.217.134.14/journeys/api/1/stop-points/7028"
+                          order: "17"
+                        - expectedArrivalTime: "2023-03-02T04:38:10+02:00"
+                          expectedDepartureTime: "2023-03-02T04:38:12+02:00"
+                          stopPointRef: "http://178.217.134.14/journeys/api/1/stop-points/7030"
+                          order: "18"
+                        - expectedArrivalTime: "2023-03-02T04:38:48+02:00"
+                          expectedDepartureTime: "2023-03-02T04:38:49+02:00"
+                          stopPointRef: "http://178.217.134.14/journeys/api/1/stop-points/7032"
+                          order: "19"
+                        - expectedArrivalTime: "2023-03-02T04:39:38+02:00"
+                          expectedDepartureTime: "2023-03-02T04:39:40+02:00"
+                          stopPointRef: "http://178.217.134.14/journeys/api/1/stop-points/7034"
+                          order: "20"
+                        - expectedArrivalTime: "2023-03-02T04:40:25+02:00"
+                          expectedDepartureTime: "2023-03-02T04:41:07+02:00"
+                          stopPointRef: "http://178.217.134.14/journeys/api/1/stop-points/7035"
+                          order: "21"
+                        - expectedArrivalTime: "2023-03-02T04:41:47+02:00"
+                          stopPointRef: "http://178.217.134.14/journeys/api/1/stop-points/7059"
+                          order: "22"
+        default:
+          description: "Unexpected error"
+          content:
+            application/json:
+              example:
+                message: "Sorry unable to perform operation."
