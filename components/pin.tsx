@@ -98,4 +98,4 @@ function Pin({
   );
 }
 
-export default React.memo(Pin);
+export default Pin;

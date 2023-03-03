@@ -1,14 +1,9 @@
 import { NextPage } from "next";
 import { useQuery, withWunderGraph } from "../components/generated/nextjs";
-import Map, { Layer, MapRef, Marker, Popup, Source } from "react-map-gl";
+import Map, { Marker } from "react-map-gl";
 import maplibregl from "maplibre-gl";
 import Pin from "components/pin";
-import { ReactFragment, useCallback, useMemo, useRef, useState } from "react";
-import {
-  LocationResponse,
-  LocationResponseData,
-} from ".wundergraph/generated/models";
-import mapboxgl from "mapbox-gl";
+import { useState } from "react";
 
 type Info = {
   feature: {
@@ -40,10 +35,6 @@ const Home: NextPage = () => {
     revalidateOnFocus: false,
     enabled: true,
   });
-
-  const refresh = () => {
-    dragons.mutate();
-  };
 
   return (
     <div>
@@ -110,8 +101,7 @@ const Home: NextPage = () => {
                   longitude: 23.770809,
                   zoom: 10,
                 }}
-                // mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
-                // mapStyle="mapbox://styles/mapbox/streets-v9"
+                mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
                 mapStyle="https://api.maptiler.com/maps/openstreetmap/style.json?key=UcrAb2Y21ncvJA6R54Hn"
                 style={{ width: 500, height: 400 }}
                 attributionControl={false}
