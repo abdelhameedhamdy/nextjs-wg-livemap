@@ -168,7 +168,18 @@ const Home: NextPage = () => {
             <a
               className="text-cyan-400 hover:text-cyan-600"
               target="_blank"
-              href="https://github.com/wundergraph/wundergraph"
+              href="https://github.com/abdelhameedhamdy/nextjs-wg-livemap"
+            >
+              Github
+            </a>{" "}
+            to learn more about this demo using Wundergraph.
+          </p>
+          <p className="pt-3">
+            Visit{" "}
+            <a
+              className="text-cyan-400 hover:text-cyan-600"
+              target="_blank"
+              href="https://github.com/abdelhameedhamdy/nextjs-wg-livemap"
             >
               Github
             </a>{" "}
