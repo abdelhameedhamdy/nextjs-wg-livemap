@@ -16,11 +16,6 @@ const spaceX = introspect.graphql({
   url: "https://spacex-api.fly.dev/graphql/",
 });
 
-const pg = introspect.postgresql({
-  apiNamespace: "db",
-  databaseURL: new EnvironmentVariable("SUPABASE_DB"),
-});
-
 const digitraffic = introspect.graphql({
   url: "https://rata.digitraffic.fi/api/v2/graphql/graphql/",
 });
@@ -34,7 +29,7 @@ const notes = introspect.openApi({
 });
 // configureWunderGraph emits the configuration
 configureWunderGraphApplication({
-  apis: [spaceX, pg, notes],
+  apis: [spaceX, notes],
   server,
   operations,
   codeGenerators: [
