@@ -16,8 +16,6 @@ import {
 
 import type { CustomClaims } from "./claims";
 import type {
-	DragonsResponse,
-	DragonsResponseData,
 	LocationResponse,
 	LocationResponseData,
 	UsersGetResponse,
@@ -49,15 +47,12 @@ export interface AuthProvider {
 }
 
 export const defaultClientConfig: ClientConfig = {
-	applicationHash: "8f586d38",
+	applicationHash: "c9e5c89c",
 	baseURL: "http://localhost:9991",
 	sdkVersion: "0.137.4",
 };
 
 export const operationMetadata: OperationMetadata = {
-	Dragons: {
-		requiresAuthentication: false,
-	},
 	Location: {
 		requiresAuthentication: false,
 	},
@@ -120,12 +115,6 @@ export const createClient = (config?: CreateClientConfig) => {
 };
 
 export type Queries = {
-	Dragons: {
-		input?: undefined;
-		data: DragonsResponseData;
-		requiresAuthentication: false;
-		liveQuery: boolean;
-	};
 	Location: {
 		input?: undefined;
 		data: LocationResponseData;
@@ -162,12 +151,6 @@ export type Subscriptions = {
 };
 
 export type LiveQueries = {
-	Dragons: {
-		input?: undefined;
-		data: DragonsResponseData;
-		liveQuery: true;
-		requiresAuthentication: false;
-	};
 	Location: {
 		input?: undefined;
 		data: LocationResponseData;

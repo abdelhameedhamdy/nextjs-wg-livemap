@@ -29,11 +29,10 @@ type Info = {
 const Home: NextPage = () => {
   const [popupInfo, setPopupInfo] = useState<Info | null>(null);
 
-  const dragons = useQuery({
+  const locations = useQuery({
     operationName: "Location",
     liveQuery: true,
     revalidateOnFocus: false,
-    enabled: true,
   });
 
   return (
@@ -105,8 +104,8 @@ const Home: NextPage = () => {
                 style={{ width: 500, height: 400 }}
                 attributionControl={false}
               >
-                {dragons.data &&
-                  dragons.data.getVehicleActivity?.body?.map(
+                {locations.data &&
+                  locations.data.getVehicleActivity?.body?.map(
                     (location, index) => {
                       const { vehicleLocation, bearing, lineRef } =
                         location.monitoredVehicleJourney!;

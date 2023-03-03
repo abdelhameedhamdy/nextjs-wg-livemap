@@ -41,11 +41,6 @@ export interface InternalUsersUpdateInput {
 	bio: string;
 }
 
-export interface DragonsResponse {
-	data?: DragonsResponseData;
-	errors?: ReadonlyArray<GraphQLError>;
-}
-
 export interface LocationResponse {
 	data?: LocationResponseData;
 	errors?: ReadonlyArray<GraphQLError>;
@@ -69,15 +64,6 @@ export interface UsersSubscribeResponse {
 export interface UsersUpdateResponse {
 	data?: UsersUpdateResponseData;
 	errors?: ReadonlyArray<GraphQLError>;
-}
-
-export interface DragonsResponseData {
-	spacex_launchLatest?: {
-		id?: string;
-		details?: string;
-		mission_name?: string;
-		launch_year?: string;
-	};
 }
 
 export interface LocationResponseData {

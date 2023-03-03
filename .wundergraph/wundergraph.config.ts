@@ -11,16 +11,7 @@ import server from "./wundergraph.server";
 import operations from "./wundergraph.operations";
 import { graphql } from "graphql";
 
-const spaceX = introspect.graphql({
-  apiNamespace: "spacex",
-  url: "https://spacex-api.fly.dev/graphql/",
-});
-
-const digitraffic = introspect.graphql({
-  url: "https://rata.digitraffic.fi/api/v2/graphql/graphql/",
-});
-
-const notes = introspect.openApi({
+const itsApi = introspect.openApi({
   source: {
     kind: "file",
     filePath: "./openapi.yaml",
@@ -29,7 +20,7 @@ const notes = introspect.openApi({
 });
 // configureWunderGraph emits the configuration
 configureWunderGraphApplication({
-  apis: [spaceX, notes],
+  apis: [itsApi],
   server,
   operations,
   codeGenerators: [
