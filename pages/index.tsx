@@ -4,24 +4,12 @@ import Map, { Marker } from "react-map-gl";
 import maplibregl from "maplibre-gl";
 import Pin from "components/pin";
 import { useState } from "react";
+import { LocationResponseData } from "components/generated/models";
 
 type Info = {
-  feature: {
-    time?: string;
-    monitoredVehicleJourney?: {
-      originShortName?: string;
-      bearing?: string;
-      speed?: string;
-      vehicleLocation?: {
-        latitude?: string;
-        longitude?: string;
-      };
-      directionRef?: string;
-      operatorRef?: string;
-      vehicleRef?: string;
-      lineRef?: string;
-    };
-  };
+  feature: NonNullable<
+    NonNullable<LocationResponseData["getVehicleActivity"]>["body"]
+  >[number];
   x: number;
   y: number;
 };
