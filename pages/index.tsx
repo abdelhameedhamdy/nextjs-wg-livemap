@@ -102,7 +102,7 @@ const Home: NextPage = () => {
                 }}
                 mapStyle="https://api.maptiler.com/maps/openstreetmap/style.json?key=UcrAb2Y21ncvJA6R54Hn"
                 style={{ width: 500, height: 400 }}
-                attributionControl={false}
+                attributionControl={true}
               >
                 {locations.data &&
                   locations.data.getVehicleActivity?.body?.map(
