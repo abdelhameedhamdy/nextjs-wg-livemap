@@ -80,7 +80,6 @@ export interface LocationResponseData {
 				};
 				directionRef?: string;
 				operatorRef?: string;
-				vehicleRef?: string;
 				lineRef?: string;
 			};
 		}[];

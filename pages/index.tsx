@@ -20,7 +20,6 @@ const Home: NextPage = () => {
   const locations = useQuery({
     operationName: "Location",
     liveQuery: true,
-    revalidateOnFocus: false,
   });
 
   return (
@@ -95,7 +94,7 @@ const Home: NextPage = () => {
                 {locations.data &&
                   locations.data.getVehicleActivity?.body?.map(
                     (location, index) => {
-                      const { vehicleLocation, bearing, lineRef } =
+                      const { vehicleLocation, bearing } =
                         location.monitoredVehicleJourney!;
                       return (
                         <Marker
@@ -106,10 +105,8 @@ const Home: NextPage = () => {
                         >
                           <Pin
                             onMouseMove={(e) => {
-                              // e.stopPropagation();
                               //@ts-ignore
                               const { layerX: x, layerY: y } = e.nativeEvent;
-
                               setPopupInfo(
                                 location && {
                                   feature: location,

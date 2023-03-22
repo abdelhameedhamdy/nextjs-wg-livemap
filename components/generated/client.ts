@@ -47,7 +47,7 @@ export interface AuthProvider {
 }
 
 export const defaultClientConfig: ClientConfig = {
-	applicationHash: "c9e5c89c",
+	applicationHash: "551dfb21",
 	baseURL: "http://localhost:9991",
 	sdkVersion: "0.137.4",
 };
@@ -119,7 +119,6 @@ export type Queries = {
 		input?: undefined;
 		data: LocationResponseData;
 		requiresAuthentication: false;
-		liveQuery: boolean;
 	};
 	"users/get": {
 		input: UsersGetInput;
@@ -151,12 +150,6 @@ export type Subscriptions = {
 };
 
 export type LiveQueries = {
-	Location: {
-		input?: undefined;
-		data: LocationResponseData;
-		liveQuery: true;
-		requiresAuthentication: false;
-	};
 	"users/get": {
 		input: UsersGetInput;
 		data: UsersGetResponseData;

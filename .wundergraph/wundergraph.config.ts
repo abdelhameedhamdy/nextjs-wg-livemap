@@ -16,8 +16,8 @@ const itsApi = introspect.openApi({
     kind: "file",
     filePath: "./openapi.yaml",
   },
-  //baseURL: "http://localhost:8090/",
 });
+
 // configureWunderGraph emits the configuration
 configureWunderGraphApplication({
   apis: [itsApi],
@@ -35,7 +35,9 @@ configureWunderGraphApplication({
   cors: {
     ...cors.allowAll,
     allowedOrigins:
-      process.env.NODE_ENV === "production" ? ["https://*"] : ["http://*"],
+      process.env.NODE_ENV === "production"
+        ? ["https://wg-livemap.vercel.app/"]
+        : ["http://*"],
     /**
      * Please configure CORS carefully to make sure that your users are protected.
      * Allowing all origins is usually the worst possible configuration.
