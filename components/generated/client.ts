@@ -4,7 +4,6 @@ import {
 	CreateClientConfig,
 	User,
 	UploadRequestOptions,
-	UploadRequestOptionsWithProfile,
 	OperationMetadata,
 	OperationsDefinition,
 	OperationRequestOptions,
@@ -12,9 +11,11 @@ import {
 	SubscriptionEventHandler,
 	FetchUserRequestOptions,
 	UploadValidationOptions,
+	ExtractProfileName,
+	ExtractMeta,
 } from "@wundergraph/sdk/client";
 
-import type { CustomClaims } from "./claims";
+import type { PublicCustomClaims } from "./claims";
 import type {
 	LocationResponse,
 	LocationResponseData,
@@ -47,9 +48,9 @@ export interface AuthProvider {
 }
 
 export const defaultClientConfig: ClientConfig = {
-	applicationHash: "551dfb21",
+	applicationHash: "ab66227e",
 	baseURL: "http://localhost:9991",
-	sdkVersion: "0.137.4",
+	sdkVersion: "0.139.0",
 };
 
 export const operationMetadata: OperationMetadata = {
@@ -69,6 +70,8 @@ export const operationMetadata: OperationMetadata = {
 		requiresAuthentication: false,
 	},
 };
+
+export type PublicUser = User<UserRole, PublicCustomClaims>;
 
 export class WunderGraphClient extends Client {
 	query<
@@ -100,7 +103,7 @@ export class WunderGraphClient extends Client {
 	public login(authProviderID: Operations["authProvider"], redirectURI?: string) {
 		return super.login(authProviderID, redirectURI);
 	}
-	public async fetchUser<TUser extends User = User<UserRole, CustomClaims>>(options?: FetchUserRequestOptions) {
+	public async fetchUser<TUser extends PublicUser = PublicUser>(options?: FetchUserRequestOptions) {
 		return super.fetchUser<TUser>(options);
 	}
 }
@@ -119,6 +122,7 @@ export type Queries = {
 		input?: undefined;
 		data: LocationResponseData;
 		requiresAuthentication: false;
+		liveQuery: boolean;
 	};
 	"users/get": {
 		input: UsersGetInput;
@@ -150,6 +154,12 @@ export type Subscriptions = {
 };
 
 export type LiveQueries = {
+	Location: {
+		input?: undefined;
+		data: LocationResponseData;
+		liveQuery: true;
+		requiresAuthentication: false;
+	};
 	"users/get": {
 		input: UsersGetInput;
 		data: UsersGetResponseData;
