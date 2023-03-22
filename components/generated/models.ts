@@ -68,15 +68,15 @@ export interface UsersUpdateResponse {
 
 export interface LocationResponseData {
 	getVehicleActivity?: {
-		body?: {
+		body: {
 			time?: string;
 			monitoredVehicleJourney?: {
 				originShortName?: string;
 				bearing?: string;
 				speed?: string;
 				vehicleLocation?: {
-					latitude?: string;
-					longitude?: string;
+					latitude: string;
+					longitude: string;
 				};
 				directionRef?: string;
 				operatorRef?: string;

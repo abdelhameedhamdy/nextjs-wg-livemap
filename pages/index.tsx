@@ -8,8 +8,8 @@ import { LocationResponseData } from "components/generated/models";
 
 type Info = {
   feature: NonNullable<
-    NonNullable<LocationResponseData["getVehicleActivity"]>["body"]
-  >[number];
+    LocationResponseData["getVehicleActivity"]
+  >["body"][number];
   x: number;
   y: number;
 };
