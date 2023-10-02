@@ -36,7 +36,10 @@ configureWunderGraphApplication({
     ...cors.allowAll,
     allowedOrigins:
       process.env.NODE_ENV === "production"
-        ? ["https://wg-livemap.vercel.app/"]
+        ? [
+            "https://wg-livemap.vercel.app/",
+            "https://wg-livemap.abdelhameedhamdy.dev",
+          ]
         : ["http://*"],
     /**
      * Please configure CORS carefully to make sure that your users are protected.
