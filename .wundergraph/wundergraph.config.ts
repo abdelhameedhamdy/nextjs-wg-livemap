@@ -38,7 +38,7 @@ configureWunderGraphApplication({
       process.env.NODE_ENV === "production"
         ? [
             "https://wg-livemap.vercel.app/",
-            "https://wg-livemap.abdelhameedhamdy.dev1",
+            "https://wg-livemap.abdelhameedhamdy.dev",
           ]
         : ["http://*"],
     /**
